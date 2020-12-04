@@ -1,8 +1,7 @@
 # Speech-to-text WPF sample for .NET Framework on Windows
 
 This sample demonstrates how to recognize speech with C# in a WPF application under the .NET Framework on Windows.
-It demonstrates recognition in the language of your choice, from file or microphone.
-It can show side-by-side results of speech recognition using the base model and a custom model that you created using [CRIS](https://cris.ai).
+It demonstrates recognition in the language of your choice, from microphone.
 
 The sample runs on .NET Framework 4.6.1 (or above) on Windows.
 
@@ -24,21 +23,18 @@ The sample runs on .NET Framework 4.6.1 (or above) on Windows.
 
 ## Run the sample
 
+* Put your Subscription Key in "Initialize" function
+* Put your Region in "StartButton_Click" function
+
 To debug the app and then run it, press F5 or use **Debug** \> **Start Debugging**. To run the app without debugging, press Ctrl+F5 or use **Debug** \> **Start Without Debugging**.
 
-The app displays a graphical user interface (GUI), which shows baseline model recognition results on the left and custom model speech recognition results on the bottom.
-Use the **Settings** fly-out on the right to configure input source, recognition type, region and language, and (most importantly) your subscription key.
+The app displays a graphical user interface (GUI), which shows baseline model recognition results on the left.
+Use the **Settings** fly-out on the right to configure recognition type and language.
 
-If you like detailed output from the speech service, use the **Baseline Model Output** and **Custom Model Output** fly-outs at the bottom of the GUI.
+If you like detailed output from the speech service, use the **Baseline Model Output** fly-outs at the bottom of the GUI.
 
-### Notes
-
-* If you use the **Save Keys** button, your subscription key will be written to an unencrypted file named `SubscriptionKey.txt` on your disk, inside [.NET Isolated Storage](https://docs.microsoft.com/dotnet/standard/io/isolated-storage).
-  Please use the [documentation](https://docs.microsoft.com/dotnet/standard/io/isolated-storage) if you'd like to locate and delete this file.
-
-* If you are using your own `.wav` file as input source, make sure it is in the right format.
-  Currently, the only supported `.wav` format is **mono (single-channel), 16 kHz sample rate, 16 bits per sample**.
 
 ## References
 
 * [Speech SDK API reference for C#](https://aka.ms/csspeech/csharpref)
+* https://github.com/Azure-Samples/cognitive-services-speech-sdk

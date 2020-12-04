@@ -107,7 +107,7 @@ namespace MicrosoftSpeechSDKSamples.WpfSpeechRecognitionSample
         // Private properties
         private const string defaultLocale = "en-US";
         private string endpointId;
-        private string subscriptionKey = "91b7c7cd432545c7aefd1a565bb828ee";
+        private string subscriptionKey;
         private const string endpointIdFileName = "CustomModelEndpointId.txt";
         private const string subscriptionKeyFileName = "SubscriptionKey.txt";
         private string wavFileName;
@@ -149,13 +149,9 @@ namespace MicrosoftSpeechSDKSamples.WpfSpeechRecognitionSample
             this.UseCustomModel = false;
             this.UseBaseAndCustomModels = false;
 
-            // Set the default values for UI
-            //this.fileInputRadioButton.IsChecked = true;
-            //this.basicRadioButton.IsChecked = true;
             this.stopButton.IsEnabled = false;
 
-            this.SubscriptionKey = "91b7c7cd432545c7aefd1a565bb828ee";
-            //this.CustomModelEndpointId = this.GetValueFromIsolatedStorage(endpointIdFileName);
+            this.SubscriptionKey = "";//Put your subscription here
         }
 
         /// <summary>
@@ -172,14 +168,13 @@ namespace MicrosoftSpeechSDKSamples.WpfSpeechRecognitionSample
             this.baseModelCurrentText.IsEnabled = false;
             this.startButton.IsEnabled = false;
             this.stopButton.IsEnabled = true;
-            //this.radioGroup.IsEnabled = false;
             this.optionPanel.IsEnabled = false;
-            //this.LogRecognitionStart(this.customModelLogText, this.customModelCurrentText);
+
             this.LogRecognitionStart(this.baseModelLogText, this.baseModelCurrentText);
             wavFileName = "";
 
-            //this.Region = ((ComboBoxItem)regionComboBox.SelectedItem).Tag.ToString();
-            this.Region = "eastus";
+            this.Region = ""; //Put your Region here(westus, easetus...)
+
             this.RecognitionLanguage = ((ComboBoxItem)languageComboBox.SelectedItem).Tag.ToString();
 
             if (!AreKeysValid())
@@ -189,34 +184,16 @@ namespace MicrosoftSpeechSDKSamples.WpfSpeechRecognitionSample
                     MessageBox.Show("Subscription Key is wrong or missing!");
                     this.WriteLine(this.baseModelLogText, "--- Error : Subscription Key is wrong or missing! ---");
                 }
-                //else if (this.UseCustomModel)
-                //{
-                //    MessageBox.Show("Subscription Key or Custom Model Endpoint ID is missing or wrong! If you do not need the custom model, please change Settings->Recognition Type.");
-                //    this.WriteLine(this.customModelLogText, "--- Error : Subscription Key or Custom Model endpoint ID is wrong or missing! ---");
-                //}
                 else if (this.UseBaseAndCustomModels)
                 {
                     MessageBox.Show("Subscription Key or Custom Model endpoint ID is missing or wrong! If you do not need the custom model, please change Settings->Recognition Type.");
                     this.WriteLine(this.baseModelLogText, "--- Error : Subscription Key or Custom Model endpoint ID is wrong or missing! ---");
-                    //this.WriteLine(this.customModelLogText, "--- Error : Subscription Key or Custom Model endpoint ID is wrong or missing! ---");
                 }
 
                 this.EnableButtons();
                 return;
             }
 
-            //if (!this.UseMicrophone)
-            //{
-            //    wavFileName = GetFile();
-            //    if (wavFileName.Length <= 0) return;
-            //    Task.Run(() => this.PlayAudioFile());
-            //}
-
-            //if (this.UseCustomModel || this.UseBaseAndCustomModels)
-            //{
-            //    stopCustomRecognitionTaskCompletionSource = new TaskCompletionSource<int>();
-            //    Task.Run(async () => { await CreateCustomReco().ConfigureAwait(false); });
-            //}
 
             if (this.UseBaseModel || this.UseBaseAndCustomModels)
             {

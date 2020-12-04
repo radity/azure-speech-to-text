@@ -52,15 +52,15 @@
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Expander ExpandDirection="Left"  Grid.Row="0"  Margin="5" IsExpanded="True">
+                <!--<Expander ExpandDirection="Left"  Grid.Row="0"  Margin="5" IsExpanded="True" x:Name="Expander"> -->
 
-                    <Expander.Header>
+                    <!--<Expander.Header>
                         <TextBlock Text="Settings">
                             <TextBlock.LayoutTransform>
                                 <RotateTransform Angle="90"/>
                             </TextBlock.LayoutTransform>
                         </TextBlock>
-                    </Expander.Header>
+                    </Expander.Header>-->
 
                     <StackPanel x:Name="optionPanel">
                         <Grid>
@@ -143,7 +143,7 @@
                         </Grid>
                     </StackPanel>
 
-                </Expander>
+                <!--</Expander>-->
                 <Grid VerticalAlignment="Bottom">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"></RowDefinition>
