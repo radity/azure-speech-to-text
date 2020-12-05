@@ -24,7 +24,6 @@ C:\Users\muham\Desktop\azure-speech-to-text\speechtotext-wpf\obj\amd64\speechtot
 C:\Users\muham\Desktop\azure-speech-to-text\speechtotext-wpf\obj\amd64\speechtotext-wpf.exe
 C:\Users\muham\Desktop\azure-speech-to-text\speechtotext-wpf\obj\amd64\Microsoft.CognitiveServices.Speech.csharp.dll
 C:\Users\muham\Desktop\azure-speech-to-text\speechtotext-wpf\obj\amd64\Microsoft.CognitiveServices.Speech.csharp.xml
-C:\Users\muham\Desktop\azure-speech-to-text\speechtotext-wpf\obj\x64\Release\speechtotext-wpf.csprojAssemblyReference.cache
 C:\Users\muham\Desktop\azure-speech-to-text\speechtotext-wpf\obj\x64\Release\MainWindow.baml
 C:\Users\muham\Desktop\azure-speech-to-text\speechtotext-wpf\obj\x64\Release\MainWindow.g.cs
 C:\Users\muham\Desktop\azure-speech-to-text\speechtotext-wpf\obj\x64\Release\App.g.cs
@@ -34,3 +33,4 @@ C:\Users\muham\Desktop\azure-speech-to-text\speechtotext-wpf\obj\x64\Release\spe
 C:\Users\muham\Desktop\azure-speech-to-text\speechtotext-wpf\obj\x64\Release\speechtotext-wpf.csproj.CoreCompileInputs.cache
 C:\Users\muham\Desktop\azure-speech-to-text\speechtotext-wpf\obj\x64\Release\speechtotext-wpf.csproj.CopyComplete
 C:\Users\muham\Desktop\azure-speech-to-text\speechtotext-wpf\obj\x64\Release\speechtotext-wpf.exe
+C:\Users\muham\Desktop\azure-speech-to-text\speechtotext-wpf\obj\x64\Release\speechtotext-wpf.csprojAssemblyReference.cache

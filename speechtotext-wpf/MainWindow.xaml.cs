@@ -115,7 +115,6 @@ namespace MicrosoftSpeechSDKSamples.WpfSpeechRecognitionSample
         // The TaskCompletionSource must be rooted.
         // See https://blogs.msdn.microsoft.com/pfxteam/2011/10/02/keeping-async-methods-alive/ for details.
         private TaskCompletionSource<int> stopBaseRecognitionTaskCompletionSource;
-        private TaskCompletionSource<int> stopCustomRecognitionTaskCompletionSource;
 
         #endregion
 
@@ -150,6 +149,11 @@ namespace MicrosoftSpeechSDKSamples.WpfSpeechRecognitionSample
             this.UseBaseAndCustomModels = false;
 
             this.stopButton.IsEnabled = false;
+
+            ComboBoxItem typeItem = (ComboBoxItem)this.languageComboBox.SelectedItem;
+            string value = typeItem.Content.ToString();
+
+            this.appLabel.Content = value;
 
             this.SubscriptionKey = "";//Put your subscription here
         }
@@ -217,10 +221,6 @@ namespace MicrosoftSpeechSDKSamples.WpfSpeechRecognitionSample
             {
                 stopBaseRecognitionTaskCompletionSource.TrySetResult(0);
             }
-            if (this.UseCustomModel || this.UseBaseAndCustomModels)
-            {
-                stopCustomRecognitionTaskCompletionSource.TrySetResult(0);
-            }
 
             EnableButtons();
         }
@@ -252,39 +252,6 @@ namespace MicrosoftSpeechSDKSamples.WpfSpeechRecognitionSample
                     using (basicRecognizer = new SpeechRecognizer(config, audioInput))
                     {
                         await this.RunRecognizer(basicRecognizer, RecoType.Base, stopBaseRecognitionTaskCompletionSource).ConfigureAwait(false);
-                    }
-               }
-            }
-        }
-
-        /// <summary>
-        /// Creates Recognizer with custom model endpointId and selected language:
-        /// Creates a config with subscription key and selected region
-        /// If input source is audio file, creates recognizer with audio file otherwise with default mic
-        /// Waits on RunRecognition
-        /// </summary>
-        private async Task CreateCustomReco()
-        {
-            // Todo: suport users to specifiy a different region.
-            var config = SpeechConfig.FromSubscription(this.SubscriptionKey, this.Region);
-            config.SpeechRecognitionLanguage = this.RecognitionLanguage;
-            config.EndpointId = this.CustomModelEndpointId;
-
-            SpeechRecognizer customRecognizer;
-            if (this.UseMicrophone)
-            {
-                using (customRecognizer = new SpeechRecognizer(config))
-                {
-                    await this.RunRecognizer(customRecognizer, RecoType.Custom, stopCustomRecognitionTaskCompletionSource).ConfigureAwait(false);
-                }
-            }
-            else
-            {
-                using (var audioInput = AudioConfig.FromWavFileInput(wavFileName))
-                {
-                    using (customRecognizer = new SpeechRecognizer(config, audioInput))
-                    {
-                        await this.RunRecognizer(customRecognizer, RecoType.Custom, stopCustomRecognitionTaskCompletionSource).ConfigureAwait(false);
                     }
                }
             }
@@ -677,6 +644,14 @@ namespace MicrosoftSpeechSDKSamples.WpfSpeechRecognitionSample
                 this.CurrentRecognizedText = this.baseModelCurrentText.Text;
 
             }
+        }
+
+        private void languageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem typeItem = (ComboBoxItem)this.languageComboBox.SelectedItem;
+            string value = typeItem.Content == null ? "" : typeItem.Content.ToString();
+
+            this.appLabel.Content = value;
         }
     }
 }

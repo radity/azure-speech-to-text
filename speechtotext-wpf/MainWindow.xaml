@@ -12,7 +12,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" >
-            <Label HorizontalAlignment="Left" Width="326">Speech to Text</Label>
+            <Label HorizontalAlignment="Left" Width="326" Name="appLabel">Speech to Text</Label>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -92,7 +92,7 @@
                                     <RadioButton x:Name="bothRadioButton" IsChecked="{Binding ElementName=mainWindow, Path=UseBaseAndCustomModels}" Margin="10, 10, 0, 0" Click="RadioButton_Click">Both</RadioButton>
                                 </StackPanel>
                             </Expander>-->
-                            <Expander Header="Language" Grid.Row="3" Margin="5" >
+                            <!--<Expander Header="Language" Grid.Row="3" Margin="5" >-->
                                 <StackPanel Orientation="Vertical">
                                     <!--<ComboBox  x:Name="regionComboBox"  Text="Select Region" Margin="10" AllowDrop="True" >
                                         <ComboBoxItem Tag="westus" IsSelected="true">westus</ComboBoxItem>
@@ -115,13 +115,13 @@
                                         <ComboBoxItem Tag="northeurope">northeurope</ComboBoxItem>
                                     </ComboBox>-->
 
-                                    <ComboBox  x:Name="languageComboBox" Text="Select Language"  Margin="10" AllowDrop="True">
+                                    <ComboBox  Name="languageComboBox" Text="Select Language"  Margin="10" AllowDrop="True" SelectionChanged="languageComboBox_SelectionChanged">
                                         <ComboBoxItem Tag="en-US" IsSelected="true">English</ComboBoxItem>
                                         <ComboBoxItem Tag="de-DE">German</ComboBoxItem>
                                         <ComboBoxItem Tag="tr-TR">Turkish</ComboBoxItem>
                                     </ComboBox>
                                 </StackPanel>
-                            </Expander>
+                            <!--</Expander>-->
                             <!--<Expander  Header="Change Keys"  Grid.Row="4" Grid.Column="0"  Margin="5">
                                 <StackPanel Margin="10">
                                     <TextBlock Text="Subscription Key:" />
