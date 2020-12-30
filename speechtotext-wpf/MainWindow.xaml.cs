@@ -155,7 +155,7 @@ namespace MicrosoftSpeechSDKSamples.WpfSpeechRecognitionSample
 
             this.appLabel.Content = value;
 
-            this.SubscriptionKey = "";//Put your subscription here
+            this.SubscriptionKey = this.GetValueFromIsolatedStorage(subscriptionKeyFileName);
         }
 
         /// <summary>
@@ -177,7 +177,7 @@ namespace MicrosoftSpeechSDKSamples.WpfSpeechRecognitionSample
             this.LogRecognitionStart(this.baseModelLogText, this.baseModelCurrentText);
             wavFileName = "";
 
-            this.Region = ""; //Put your Region here(westus, easetus...)
+            this.Region = "eastus"; //Put your Region here(westus, easetus...)
 
             this.RecognitionLanguage = ((ComboBoxItem)languageComboBox.SelectedItem).Tag.ToString();
 
@@ -470,7 +470,7 @@ namespace MicrosoftSpeechSDKSamples.WpfSpeechRecognitionSample
             {
                 SaveKeyToIsolatedStorage(subscriptionKeyFileName, this.SubscriptionKey);
                 SaveKeyToIsolatedStorage(endpointIdFileName, this.CustomModelEndpointId);
-                MessageBox.Show("Keys are saved to your disk.\nYou do not need to paste it next time.", "Keys");
+                MessageBox.Show("Keys are saved to your disk.\nYou do not need to paste it next time.", "Subscription Key");
             }
             catch (Exception exception)
             {
@@ -537,7 +537,7 @@ namespace MicrosoftSpeechSDKSamples.WpfSpeechRecognitionSample
 
             this.SetCurrentText(currentText, string.Empty);
             log.Clear();
-            this.WriteLine(log, "\n--- Start speech recognition using " + recoSource + " in " + defaultLocale + " language ----\n\n");
+            this.WriteLine(log, "\n--- Start speech recognition using " + recoSource + " ----\n\n");
         }
 
         /// <summary>

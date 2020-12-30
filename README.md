@@ -22,10 +22,11 @@ The sample runs on .NET Framework 4.6.1 (or above) on Windows.
 
 ## Run the sample
 
-* Put your Subscription Key in "Initialize" function
 * Put your Region in "StartButton_Click" function
 
 To debug the app and then run it, press F5 or use **Debug** \> **Start Debugging**. To run the app without debugging, press Ctrl+F5 or use **Debug** \> **Start Without Debugging**.
+
+* Put your Subscription Key in "Subscription Key" text box and save it once.
 
 The app displays a graphical user interface (GUI), which shows baseline model recognition results on the left.
 Use the **Settings** fly-out on the right to configure recognition type and language.
